@@ -4,6 +4,13 @@
   text-indent: 0;
 }
 
+@mixin brands() {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 600;
+  font-size: 13px;
+  text-indent: 0;
+}
+
 @mixin absolute() {
   position: absolute;
   top: 0;
