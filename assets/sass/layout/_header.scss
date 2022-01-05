@@ -1,0 +1,97 @@
+header {
+    width: 100%;
+    background: $primary;
+
+    .heading .wrapper {
+        padding: 20px 0;
+        @include flex;
+        @include vendor(justify-content, space-between);
+
+        .logo a {
+            position: relative; 
+            color: $white;
+            font-weight: 400;
+            font-size: 38px;
+            cursor: pointer;
+            @include vendor(transition, .5s ease);
+
+            &:hover { color: darken($light, 10%); }
+
+            &::after {
+                content: '';
+                width: 10px;
+                height: 10px;
+                border-top: 3px solid lighten($secondary, 10%);
+                border-right: 3px solid lighten($secondary, 10%);
+                position: absolute;
+                top: 10px;
+                right: -10px;
+            }
+        }
+
+        form {
+            width: 100%;
+            @include flex;
+            @include vendor(justify-content, flex-end);
+        }
+
+        input {
+            padding: 8px 20px 8px 8px;
+            border: none;
+            font-size: 11px;
+            outline: none;
+            letter-spacing: .5x;
+        }
+
+        button {
+            padding: 7px 14px;
+            border: none;
+            background: $secondary;
+            color: $white;
+            font-size: 12px;
+            outline: none;
+            @include vendor(transition, .5s ease);
+
+            &:hover { background: lighten($secondary, 10%); }
+        }
+    }
+
+    nav {
+        margin: 13px 0;
+        background: $secondary;
+
+        ul {
+            li {
+                position: relative;
+
+                a {
+                    padding: 9px 11.5px;
+                    color: $light;
+                    font-family: sans-serif;
+                    font-size: 11px;
+                    @include vendor(transition, .5s ease);
+                    
+                    &:hover { background-color: lighten($secondary, 10%); }
+                }
+
+                a:after {
+                    content: '';
+                    width: 1px;
+                    height: 13px;
+                    position: absolute;
+                    top: 9px;
+                    right: -2px;
+                    background: lighten($secondary, 20%);
+                }
+
+                &:last-child a:after { width: 0; }
+            }
+        }
+    }
+
+    .menu, 
+    .close { 
+      display: none; 
+      cursor: pointer;
+    }
+}
