@@ -288,6 +288,79 @@ header {
     display: none;
     cursor: pointer; }
 
+main .wrapper {
+  margin: 20px auto;
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex;
+  display: -webkit-box;
+  display: flex;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  -o-align-items: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+  main .wrapper .information {
+    width: 72%; }
+    main .wrapper .information .banner {
+      width: 100%;
+      margin-bottom: 15px;
+      border: 1px solid #dddfdf;
+      -webkit-display: flex;
+      -moz-display: flex;
+      -ms-display: flex;
+      -o-display: flex;
+      display: -webkit-box;
+      display: flex;
+      -moz-align-items: flex-start;
+      -ms-align-items: flex-start;
+      -o-align-items: flex-start;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start; }
+      main .wrapper .information .banner .banner-content {
+        width: 45%;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        padding: 14px 20px; }
+        main .wrapper .information .banner .banner-content small {
+          color: #333;
+          font-weight: 600;
+          font-size: 12px;
+          letter-spacing: .3px; }
+        main .wrapper .information .banner .banner-content a {
+          margin-top: 6px;
+          display: block;
+          color: #1259a2;
+          font-weight: 600;
+          font-size: 16px;
+          letter-spacing: .5px;
+          -webkit-transition: 0.5s ease;
+          transition: 0.5s ease;
+          font-size: 24px; }
+          main .wrapper .information .banner .banner-content a:hover {
+            color: #328ce8; }
+        main .wrapper .information .banner .banner-content span {
+          font-size: 11.5px;
+          color: #979797;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 11px; }
+        main .wrapper .information .banner .banner-content p {
+          margin-top: 4px;
+          color: #666666;
+          font-weight: 600;
+          font-size: 11px;
+          letter-spacing: .3px;
+          line-height: 15px; }
+      main .wrapper .information .banner figure {
+        width: 55%; }
+        main .wrapper .information .banner figure img {
+          width: 100%; }
+  main .wrapper aside {
+    width: 28%; }
+
 footer {
   position: relative;
   background: #1259a2; }
