@@ -45,3 +45,38 @@ main {
         aside { width: 28%; }
     }
 }
+
+.news {
+    padding: 15px 0;
+    border-top: 1px solid $light;
+    border-bottom: 1px solid $light;
+
+    ul {
+        gap: 12px;
+        @include vendor(display, flex);
+
+        li {
+            figure { margin-bottom: 5px; }
+            width: 33.33%;
+            height: 300px;
+            padding-right: 12px;
+            border-right: 1px solid $light;
+
+            &:last-child { border: none; }
+            
+            small { @include topic; }
+            
+            a {
+                padding-bottom: 2px;
+                @include title;
+            }
+
+            span { @include date;}
+            
+            p {
+                margin-top: 5px;
+                @include para;
+            }
+        }
+    }
+}

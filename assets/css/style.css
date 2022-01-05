@@ -361,6 +361,56 @@ main .wrapper {
   main .wrapper aside {
     width: 28%; }
 
+.news {
+  padding: 15px 0;
+  border-top: 1px solid #dddfdf;
+  border-bottom: 1px solid #dddfdf; }
+  .news ul {
+    gap: 12px;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    display: -webkit-box;
+    display: flex; }
+    .news ul li {
+      width: 33.33%;
+      height: 300px;
+      padding-right: 12px;
+      border-right: 1px solid #dddfdf; }
+      .news ul li figure {
+        margin-bottom: 5px; }
+      .news ul li:last-child {
+        border: none; }
+      .news ul li small {
+        color: #333;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: .3px; }
+      .news ul li a {
+        padding-bottom: 2px;
+        margin-top: 6px;
+        display: block;
+        color: #1259a2;
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: .5px;
+        -webkit-transition: 0.5s ease;
+        transition: 0.5s ease; }
+        .news ul li a:hover {
+          color: #328ce8; }
+      .news ul li span {
+        color: #979797;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px; }
+      .news ul li p {
+        margin-top: 5px;
+        color: #666666;
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: .3px;
+        line-height: 15px; }
+
 footer {
   position: relative;
   background: #1259a2; }
