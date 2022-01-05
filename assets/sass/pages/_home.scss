@@ -5,8 +5,16 @@ main {
         @include vendor(display, flex);
         @include vendor(align-items, flex-start);
 
+        @include responsive($phone) {
+            gap: 0;
+            @include vendor(flex-direction, column);
+            @include vendor(justify-content, center);
+        }
+
         .information {
             width: 72%;
+            margin: 0 auto;
+            @include responsive($phone) { width: 100%; }
 
             .banner {
                 width: 100%;
@@ -17,10 +25,22 @@ main {
                 
                 @include vendor(display, flex);
                 @include vendor(align-items, flex-start);
+
+                @include responsive($iphone) {
+                    height: auto;
+                    @include vendor(flex-direction, column);
+                }
+
                 .banner-content {
                     width: 45%;
                     box-sizing: border-box;
                     padding: 12px 20px;
+
+                    @include responsive($phone) {
+                        width: 90%;
+                        margin: 0 auto;
+                        text-align: center;
+                    }
 
                     small { @include topic; }
 
@@ -44,6 +64,9 @@ main {
                     width: 55%;
                     height: 100%;
                     overflow: hidden;
+
+                    @include responsive($iphone) { width: 100%; }
+
                     img {
                         width: 100%;
                         height: 100%;
@@ -51,6 +74,7 @@ main {
                     }
                 }
             }
+
             .show {
                 width: 10%;
                 padding: 7px 35px;
@@ -63,6 +87,8 @@ main {
                 @include vendor(justify-content, center);
                 @include vendor(transition, .5s ease);
 
+                @include responsive($iphone) { width: 40%; }
+
                 &:hover { background: lighten($secondary, 10%); }
             }
 
@@ -74,6 +100,11 @@ main {
                 ul {
                     gap: 12px;
                     @include vendor(display, flex);
+
+                    @include responsive($iphone) {
+                        @include vendor(flex-direction, column);
+                        @include vendor(justify-content, center);
+                    }
             
                     li {
                         figure { margin-bottom: 5px; }
@@ -82,6 +113,14 @@ main {
                         max-height: auto;
                         padding-right: 12px;
                         border-right: 1px solid $light;
+
+                        @include responsive($phone) {
+                            width: 80%;
+                            height: auto;
+                            padding-right: 0;
+                            border: none;
+                            margin: 0 auto 20px auto;
+                        }
             
                         &:last-child { border: none; }
                         
@@ -110,6 +149,8 @@ main {
                     color: $secondary;
                     font-weight: 400;
                     font-size: 26px;
+                    
+                    @include responsive($iphone) { text-align: center; }
                 }
             
                 .slider {
@@ -119,8 +160,13 @@ main {
                     border-bottom: 1px solid $light;
                     position: relative;
                     overflow-x: hidden;
+
+                    @include responsive($iphone) { width: 80%; }
             
-                    .slick-slide { margin-right: 16px; }
+                    .slick-slide {
+                        margin-right: 16px;
+                        @include responsive($iphone) { margin-right: 0; }
+                    }
             
                     .slick-prev {
                         left: 0;
@@ -156,6 +202,7 @@ main {
                     
                     li {
                         width: 33.33%;
+                        @include responsive($iphone) { width: 100%; }
             
                         small {
                             a {
@@ -191,14 +238,26 @@ main {
                     gap: 12px;
                     @include vendor(display, flex);
                     @include vendor(flex-wrap, wrap);
+
+                    @include responsive($iphone) {
+                        @include vendor(flex-direction, column);
+                    }
             
                     li {
                         width: 30%;
-                        height: 180px;
-                        max-height: auto;
+                        min-height: 180px;
+                        height: auto;
                         padding-right: 12px;
                         margin-bottom: 8px;
                         border-right: 1px solid $light;
+
+                        @include responsive($iphone) {
+                            width: 80%;
+                            min-height: auto;
+                            margin: 15px auto;
+                            text-align: center;
+                            border-right: none;
+                        }
             
                         &:nth-child(3n) { border-right: none; }
             
@@ -227,10 +286,19 @@ main {
 
         aside {
             width: 28%;
+            @include responsive($phone) {
+                width: 45%;
+                margin: 40px auto 0 auto;
+            }
+
+            @include responsive($custom-size) { width: 90%; }
+
+            @include responsive($iphone) { width: 70%; }
 
             .update {
                 padding: 10px 15px;
                 background: $primary;
+                @include responsive($phone) { text-align: center; }
 
                 h2 {
                     color: $white;
@@ -258,6 +326,8 @@ main {
             .most-viewed {
                 margin-top: 16px;
                 border: 1px solid $light;
+                @include responsive($phone) { text-align: center; }
+
                 h3 {
                     padding: 8px 11px;
                     background: $primary;
@@ -270,6 +340,8 @@ main {
                     padding: 10px;
                     @include flex;
                     @include vendor(flex-direction, column);
+
+                    @include responsive($phone) { text-align: center; }
 
                     li {
                         padding-bottom: 15px;

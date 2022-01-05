@@ -7,13 +7,18 @@ header {
         @include flex;
         @include vendor(justify-content, space-between);
 
+        @include responsive($iphone) { padding: 15px 0 10px 0; }
+
         .logo a {
             position: relative; 
             color: $white;
             font-weight: 400;
             font-size: 38px;
             cursor: pointer;
+
             @include vendor(transition, .5s ease);
+
+            @include responsive($iphone) { font-size: 24px; }
 
             &:hover { color: darken($light, 10%); }
 
@@ -26,6 +31,12 @@ header {
                 position: absolute;
                 top: 10px;
                 right: -10px;
+
+                @include responsive($iphone) {
+                    width: 8px;
+                    height: 8px;
+                    top: 0;
+                }
             }
         }
 
@@ -33,26 +44,37 @@ header {
             width: 100%;
             @include flex;
             @include vendor(justify-content, flex-end);
-        }
 
-        input {
-            padding: 8px 20px 8px 8px;
-            border: none;
-            font-size: 11px;
-            outline: none;
-            letter-spacing: .5x;
-        }
+            @include responsive($custom-size) {
+                div { width: 60%; }
+            }
 
-        button {
-            padding: 7px 14px;
-            border: none;
-            background: $secondary;
-            color: $white;
-            font-size: 12px;
-            outline: none;
-            @include vendor(transition, .5s ease);
-
-            &:hover { background: lighten($secondary, 10%); }
+            input {
+                padding: 8px 20px 8px 8px;
+                border: none;
+                font-size: 11px;
+                outline: none;
+                letter-spacing: .5x;
+    
+                @include responsive($iphone) {
+                    width: 100%;
+                    padding: 8px 0 8px 8px;
+                }
+            }
+    
+            button {
+                padding: 7px 14px;
+                border: none;
+                background: $secondary;
+                color: $white;
+                font-size: 12px;
+                outline: none;
+                @include vendor(transition, .5s ease);
+    
+                @include responsive($iphone) { padding: 7px 8px; }
+    
+                &:hover { background: lighten($secondary, 10%); }
+            }
         }
     }
 
@@ -60,7 +82,30 @@ header {
         margin: 13px 0;
         background: $secondary;
 
+        @include responsive($iphone) {
+            width: 50%;
+            height: 100vh;
+            margin: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: $white;
+            @include vendor(transition, .5s ease);
+            @include vendor(transform, translateX(-200%));
+        }
+
+        @include responsive($custom-size) { width: 80%; }
+
         ul {
+            @include responsive($iphone) {
+                @include vendor(display, flex);
+                @include vendor(flex-direction, column);
+                @include vendor(align-items, center);
+                position: relative;
+                top: 80px;
+            }
+
             li {
                 position: relative;
 
@@ -71,7 +116,11 @@ header {
                     font-size: 11px;
                     @include vendor(transition, .5s ease);
                     
-                    &:hover { background-color: lighten($secondary, 10%); }
+                    @include responsive($iphone) { color: $dark; }
+                    &:hover {
+                        background-color: lighten($secondary, 10%);
+                        background: $white;
+                    }
                 }
 
                 a:after {
@@ -82,6 +131,8 @@ header {
                     top: 9px;
                     right: -2px;
                     background: lighten($secondary, 20%);
+
+                    @include responsive($iphone) {background: none; }
                 }
 
                 &:last-child a:after { width: 0; }
@@ -89,9 +140,41 @@ header {
         }
     }
 
+    .showNav { @include vendor(transform, translateX(0)); }
+
     .menu, 
     .close { 
       display: none; 
       cursor: pointer;
+    }
+
+    @include responsive($iphone) {
+        .menu {
+            padding: 6px 10px;
+            background: $secondary;
+            font-size: 0;
+            cursor: pointer;
+            @include vendor(display, block);
+
+            &::after {
+                content: '\f0c9';
+                margin-left: auto;
+                color: $white;
+                font-size: 20px;
+                text-align: right;
+                @include icon;
+                @include vendor(display, flex);
+                @include vendor(justify-content, flex-end);
+            }
+        }
+
+        .close {
+            padding: 5px 12px;
+            margin-top: 20px;
+            display: initial;
+            float: right;
+            background: $light;
+            font-weight: 600;
+        }
     }
 }

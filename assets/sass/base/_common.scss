@@ -28,39 +28,43 @@ li {
   margin: 0 auto;
 }
 
+@include responsive($small-pc) { .wrapper {width: 86%;} }
+@include responsive($notebook) { .wrapper {width: 92%;} }
+@include responsive($ipad) { .wrapper {width: 95%;} }
+
 /* toggleUp styling starts here */
 .toggleUp {
-display: none;
-justify-content: flex-end;
-position: fixed;
-right: 20px;
-bottom: 20px;
-text-indent: -9999px;
-transition: .5s ease;
-z-index: 20;
+  display: none;
+  justify-content: flex-end;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  text-indent: -9999px;
+  transition: .5s ease;
+  z-index: 20;
+  
+  @include vendor(justify-content, "flex-end");
+  @include vendor(transition, ".5s ease");
 
-@include vendor(justify-content, "flex-end");
-@include vendor(transition, ".5s ease");
+  &::after {
+      content: '\f077';
+      padding: 12px 14px;
+      border-radius: 50%;
+      background: $black;
+      color: $white;
+      font-size: 14px;
+      opacity: .4;
+      text-indent: 0;
+      transition: .5s ease;
 
-&::after {
-    content: '\f077';
-    padding: 12px 14px;
-    border-radius: 50%;
-    background: $black;
-    color: $white;
-    font-size: 14px;
-    opacity: .4;
-    text-indent: 0;
-    transition: .5s ease;
+      @include icon;
+      @include vendor(transition, ".5s ease");
+  }
 
-    @include icon;
-    @include vendor(transition, ".5s ease");
-}
-
-&:hover,
-&:hover::after {
-    opacity: .8;
-}
+  &:hover,
+  &:hover::after {
+      opacity: .8;
+  }
 }
 
 .flex { @include flex; }
