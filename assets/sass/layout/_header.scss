@@ -92,7 +92,7 @@ header {
             bottom: 0;
             background: $white;
             @include vendor(transition, .5s ease);
-            @include vendor(transform, translateX(-200%));
+            @include vendor(transform, translateX(200%));
         }
 
         @include responsive($custom-size) { width: 80%; }
