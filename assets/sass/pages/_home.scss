@@ -1,89 +1,6 @@
 main {
     .wrapper {
-        margin: 20px auto;
-        @include vendor(display, flex);
-        @include vendor(align-items, flex-start);
-
-        .information {
-            width: 72%;
-
-            .banner {
-                width: 100%;
-                margin-bottom: 15px;
-                border: 1px solid $light;
-                
-                @include vendor(display, flex);
-                @include vendor(align-items, flex-start);
-                .banner-content {
-                    width: 45%;
-                    box-sizing: border-box;
-                    padding: 14px 20px;
-
-                    small { @include topic; }
-
-                    a {
-                        @include title;
-                        font-size: 24px;
-                    }
-
-                    span {
-                        font-size: 11.5px;
-                        @include date;
-                    }
-
-                    p {
-                        margin-top: 4px;
-                        @include para;
-                    }
-                }
-                figure {
-                    width: 55%;
-                    img { width: 100%; }
-                }
-            }
-        }
-        aside { width: 28%; }
-    }
-}
-
-.news {
-    padding: 15px 0;
-    border-top: 1px solid $light;
-    border-bottom: 1px solid $light;
-
-    ul {
-        gap: 12px;
-        @include vendor(display, flex);
-
-        li {
-            figure { margin-bottom: 5px; }
-            width: 33.33%;
-            height: 300px;
-            padding-right: 12px;
-            border-right: 1px solid $light;
-
-            &:last-child { border: none; }
-            
-            small { @include topic; }
-            
-            a {
-                padding-bottom: 2px;
-                @include title;
-            }
-
-            span { @include date;}
-            
-            p {
-                margin-top: 5px;
-                @include para;
-            }
-        }
-    }
-}
-
-main {
-    .wrapper {
-        margin: 20px auto;
+        margin: 24px auto;
         gap: 20px;
         @include vendor(display, flex);
         @include vendor(align-items, flex-start);
@@ -93,19 +10,22 @@ main {
 
             .banner {
                 width: 100%;
+                height: 215px;
                 margin-bottom: 15px;
                 border: 1px solid $light;
+                overflow: hidden;
                 
                 @include vendor(display, flex);
                 @include vendor(align-items, flex-start);
                 .banner-content {
                     width: 45%;
                     box-sizing: border-box;
-                    padding: 14px 20px;
+                    padding: 12px 20px;
 
                     small { @include topic; }
 
                     a {
+                        margin-top: 6px;
                         @include title;
                         font-size: 24px;
                     }
@@ -122,7 +42,13 @@ main {
                 }
                 figure {
                     width: 55%;
-                    img { width: 100%; }
+                    height: 100%;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
                 }
             }
             .show {
@@ -139,120 +65,243 @@ main {
 
                 &:hover { background: lighten($secondary, 10%); }
             }
-        }
-        aside { width: 28%; }
-    }
-}
 
-.news {
-    padding: 15px 0;
-    border-top: 1px solid $light;
-    border-bottom: 1px solid $light;
-
-    ul {
-        gap: 12px;
-        @include vendor(display, flex);
-
-        li {
-            figure { margin-bottom: 5px; }
-            width: 33.33%;
-            height: 300px;
-            padding-right: 12px;
-            border-right: 1px solid $light;
-
-            &:last-child { border: none; }
+            .news {
+                padding: 15px 0;
+                border-top: 1px solid $light;
+                border-bottom: 1px solid $light;
             
-            small { @include topic; }
+                ul {
+                    gap: 12px;
+                    @include vendor(display, flex);
             
-            a {
-                padding-bottom: 2px;
-                @include title;
-            }
-
-            span { @include date;}
+                    li {
+                        figure { margin-bottom: 5px; }
+                        width: 33.33%;
+                        height: 300px;
+                        max-height: auto;
+                        padding-right: 12px;
+                        border-right: 1px solid $light;
             
-            p {
-                margin-top: 5px;
-                @include para;
-            }
-        }
-    }
-}
-
-.must-see {
-    margin: 15px auto;
-
-    h2 {
-        color: $secondary;
-        font-weight: 400;
-        font-size: 26px;
-    }
-
-    .slider {
-        width: 100%;
-        padding-bottom: 20px;
-        margin: 15px auto;
-        border-bottom: 1px solid $light;
-        position: relative;
-        overflow-x: hidden;
-
-        .slick-slide { margin-right: 16px; }
-
-        .slick-prev {
-            left: 0;
-            &::after { content: '\f053'; }
-        }
-
-        .slick-next {
-            right: 0;
-            &::after { content: '\f054'; }
-        }
-
-        .slick-prev,
-        .slick-next {
-            padding: 0 10px;
-            border: none;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            z-index: 10;
-            background-color: #ffffff80;
-            font-size: 0;
-            outline: none;
-            @include vendor(transition, .5s ease);
-
-            &::after {
-                color: $grey;
-                font-size: 18px;
-                @include icon;
-            }
-
-            &:hover { background: #b4b3b380; }
-        }
-        
-        li {
-            width: 33.33%;
-
-            small {
-                a {
-                    margin: 10px 8px 0 0;
-                    color: $dark;
-
-                    &::after {
-                        content: '';
-                        width: 1px;
-                        height: 20px;
-                        margin-left: 8px;
-                        border-right: 1px solid $grey;
+                        &:last-child { border: none; }
+                        
+                        small { @include topic; }
+                        
+                        a {
+                            padding-bottom: 2px;
+                            margin-top: 6px;
+                            @include title;
+                        }
+            
+                        span { @include date;}
+                        
+                        p {
+                            margin-top: 5px;
+                            @include para;
+                        }
                     }
-
-                    &:nth-child(2)::after { border: none; }
                 }
-                @include flex;
-                @include topic;
+            }
+            
+            .must-see {
+                margin: 15px auto;
+            
+                h2 {
+                    color: $secondary;
+                    font-weight: 400;
+                    font-size: 26px;
+                }
+            
+                .slider {
+                    width: 100%;
+                    padding-bottom: 20px;
+                    margin: 15px auto;
+                    border-bottom: 1px solid $light;
+                    position: relative;
+                    overflow-x: hidden;
+            
+                    .slick-slide { margin-right: 16px; }
+            
+                    .slick-prev {
+                        left: 0;
+                        &::after { content: '\f053'; }
+                    }
+            
+                    .slick-next {
+                        right: 0;
+                        &::after { content: '\f054'; }
+                    }
+            
+                    .slick-prev,
+                    .slick-next {
+                        padding: 0 10px;
+                        border: none;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        z-index: 10;
+                        background-color: #ffffff80;
+                        font-size: 0;
+                        outline: none;
+                        @include vendor(transition, .5s ease);
+            
+                        &::after {
+                            color: $grey;
+                            font-size: 18px;
+                            @include icon;
+                        }
+            
+                        &:hover { background: #b4b3b380; }
+                    }
+                    
+                    li {
+                        width: 33.33%;
+            
+                        small {
+                            a {
+                                margin: 10px 8px 0 0;
+                                color: $dark;
+            
+                                &::after {
+                                    content: '';
+                                    width: 1px;
+                                    height: 20px;
+                                    margin-left: 8px;
+                                    border-right: 1px solid $grey;
+                                }
+            
+                                &:nth-child(2)::after { border: none; }
+                            }
+                            @include flex;
+                            @include topic;
+                        }
+            
+                        & > a {
+                            margin-top: 6px;
+                            @include title;
+                        }
+                    }
+                }
+            }
+            
+            .articles {
+                margin-bottom: 20px;
+            
+                ul {
+                    gap: 12px;
+                    @include vendor(display, flex);
+                    @include vendor(flex-wrap, wrap);
+            
+                    li {
+                        width: 30%;
+                        height: 180px;
+                        max-height: auto;
+                        padding-right: 12px;
+                        margin-bottom: 8px;
+                        border-right: 1px solid $light;
+            
+                        &:nth-child(3n) { border-right: none; }
+            
+                        small {
+                            margin: 0;
+                            @include topic;
+                        }
+            
+                        a {
+                            margin-top: 5px;
+                            @include title;
+                        }
+            
+                        span {
+                            @include date;
+                        }
+            
+                        p {
+                            margin: 4px 0;
+                            @include para;
+                        }
+                    }
+                }
+            }
+        }
+
+        aside {
+            width: 28%;
+
+            .update {
+                padding: 10px 15px;
+                background: $primary;
+
+                h2 {
+                    color: $white;
+                    font-weight: 400;
+                    font-size: 19px;
+                    line-height: 24px;
+                }
+
+                a {
+                    width: 100%;
+                    margin-top: 10px;
+                    padding: 7px 0;
+                    color: $white;
+                    font-weight: 500;
+                    font-size: 12px;
+                    background: $secondary;
+                    letter-spacing: .3px;
+                    text-align: center;
+                    @include vendor(transition, .5s ease);
+
+                    &:hover { background: lighten($secondary, 10%); }
+                }
             }
 
-            & > a { @include title; }
+            .most-viewed {
+                margin-top: 16px;
+                border: 1px solid $light;
+                h3 {
+                    padding: 8px 11px;
+                    background: $primary;
+                    color: $white;
+                    font-weight: 400;
+                    font-size: 17px;
+                }
+
+                ul {
+                    padding: 10px;
+                    @include flex;
+                    @include vendor(flex-direction, column);
+
+                    li {
+                        padding-bottom: 15px;
+                        margin-bottom: 10px;
+                        border-bottom: 1px solid $light;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                            border: none;
+                        }
+
+                        small {
+                            @include topic;
+                        }
+    
+                        a {
+                            @include title;
+                            margin-top: 0;
+                        }
+    
+                        span {
+                            position: relative;
+                            top: 8px;
+                            @include date;
+                        }
+    
+                        p {
+                            @include para;
+                        }
+                    }
+                }
+            }
         }
     }
 }
